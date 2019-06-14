@@ -39,6 +39,10 @@ git clone ${LOCAL_DEPLOY_REPO_PATH}
 
 # build tendermint
 cd tendermint || exit
+
+echo "waiting 5s before building tendermint"
+./cluster.sh down
+
 make get_tools && make get_vendor_deps
 make && make install
 
